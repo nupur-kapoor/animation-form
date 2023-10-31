@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .f
+        {
+            height: 100vh;
+            width: 100%;
+            background-color:#333;
+
+        }
+        .btn 
+        {
+           position: absolute;
+           top: 50%;
+           left: 50%;
+           transform: translate(-50% ,-50%);
+            border: 3px solid saddlebrown;
+            padding:10px;
+            box-shadow: 1px 2px 5px 1px brown;
+            cursor: pointer;
+            color: whitesmoke;
+            transition: all ease-in 0.3s;
+        }
+
+        .btn :hover
+        {
+           color: #333;
+        }
+        
+      input[type=checkbox]{
+        display: none;
+      }     
+
+      #check:checked ~ #forms
+      {
+        display: block;
+      }
+
+      #check:checked ~ .btn
+      {
+        display: none;
+      }
+
+      #forms
+      {
+        width: 250px;
+        height: 300px;
+        background-color:gainsboro;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50% , -50%);
+        border-radius: 30px;
+        box-shadow: 0px 0px 10px 3px brown;
+        display: none;
+      }
+      
+      #forms button,input
+      {
+        margin-top: 10px;
+      }
+
+      #forms input
+      {
+        width: 100%;
+        margin-top: 10px;
+      }
+
+    </style>
+
+
+<script type="text/javascript">
+   function check()
+        {
+        var name = document.start.fname.value;
+        var pass = document.start.pass.value;
+
+        if(name == '')
+        {
+            document.getElementById("demo").innerHTML = "Plz first enter your name";
+            return false;
+
+        }
+
+        if (pass.length<8)
+        {
+            document.getElementById("demo").innerHTML = "your password should be 8 character long";
+        }
+    }
+</script>
+</head>
+<body>
+    <div class="f">
+        <input type="checkbox" id="check">
+        <label class="btn" for="check">
+            <h3>CLICK if you want to see more collection</h3>
+        </label>
+
+
+
+        <!-- -------------- -->
+
+        <form method="get" action="index.html" name="start" id="forms"
+         onclick=" return check();">
+          Name <input name="fname" placeholder="Enter name" type="text">
+          <br>
+          <br>
+          <span id="demo"></span>
+          password<input type="text" name="pass" placeholder="Enter password">
+            <input type="submit" name="submit" value="Register">
+      </form>
+    </div> 
+
+</body>
+</html>
